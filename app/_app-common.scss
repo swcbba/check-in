@@ -10,3 +10,70 @@
 
 // Place any CSS rules you want to apply on both iOS and Android here.
 // This is where the vast majority of your CSS code goes.
+
+.action-bar {
+  background-color: #212121;
+  color: #FFFFFF;
+}
+
+.logo {
+  width: 180;
+  margin: 20;
+}
+
+.button {
+  background-color: #fc003c;
+  margin: 10 20;
+  color: #FFFFFF;
+}
+
+.checked {
+  width: 100;
+  margin: 20;
+}
+
+.verified {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18;
+  
+  &.correct {
+    color: #00E874;
+  }
+
+  &.error {
+    color: #fc003c;
+  }
+}
+
+.assistant {
+  color: #212121;
+  text-align: center;
+  font-weight: bold;
+  margin: 5 0;
+
+  &.ticket {
+    font-size: 18;
+  }
+
+  &.name {
+    font-size: 20;
+  }
+}
+
+.error {
+  color: #212121;
+  text-align: center;
+  font-weight: bold;
+  margin: 5 0;
+  font-size: 16;
+}
+
+.indicator {
+  color: #fc003c;
+}
+
+.loading {
+  text-align: center;
+  margin: 5 0;
+}

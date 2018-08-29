@@ -1,4 +1,23 @@
-<ActionBar title="Scan" class="action-bar"></ActionBar>
-<FlexboxLayout flexDirection="column" class="page">
-    <Button text="Scan" (tap)="scanTapped()"></Button>
-</FlexboxLayout>
+<ActionBar title="SWCBBA" class="action-bar"></ActionBar>
+<GridLayout *ngIf="!data"  columns="*" rows="* auto">
+    <Image row="0" src="~/images/logo.png" horizontalAlignment="stretch" class="logo" *ngIf="!isLoading"></Image>
+    <StackLayout row="0" verticalAlignment="center" *ngIf="isLoading">
+        <ActivityIndicator  #activityIndicator [busy]="isLoading" width="45" height="45" class="indicator" ></ActivityIndicator>
+        <Label text="Verificando datos..." class="loading"></Label>
+    </StackLayout>
+    <Button row="1" text="CHECK IN" (tap)="scanTapped()" class="button" *ngIf="!isLoading"></Button>
+</GridLayout>
+<GridLayout *ngIf="data" columns="*" rows="auto * auto">
+    <Image row="0" src="~/images/logo.png" horizontalAlignment="stretch" class="logo"></Image>
+    <StackLayout row="1" verticalAlignment="center">
+        <Label *ngIf="checkinCorrect && !checkinError" text="¡Check in exitoso!" class="verified correct"></Label>
+        <Label *ngIf="!checkinCorrect || checkinError" text="¡Error en check in!" class="verified error"></Label>
+        <Image *ngIf="checkinCorrect && !checkinError" src="~/images/checked.png" horizontalAlignment="stretch" class="checked"></Image>
+        <Image *ngIf="!checkinCorrect || checkinError" src="~/images/warning.png" horizontalAlignment="stretch" class="checked"></Image>
+        <Label *ngIf="checkinCorrect && !checkinError" text="Ticket {{assistant.ticketNumber}}" class="assistant ticket"></Label>
+        <Label *ngIf="checkinCorrect && !checkinError" text="{{assistant.name}}" class="assistant name"></Label>
+        <Label *ngIf="!checkinCorrect" text="Este ticket ya realizó el check in" class="error" text-wrap="true"></Label>
+        <Label *ngIf="checkinError" text="Este ticket no se encuentra registrado" class="error" text-wrap="true"></Label>
+    </StackLayout>
+    <Button row="2" text="ACEPTAR" (tap)="clear()" class="button"></Button>
+</GridLayout>
