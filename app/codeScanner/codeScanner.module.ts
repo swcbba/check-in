@@ -1,4 +1,5 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { CodeScannerRoutingModule } from "./codeScanner.routing";
 import { CodeScannerComponent } from "./codeScanner.component";
 import { BarcodeScanner } from 'nativescript-barcodescanner';
@@ -12,6 +13,7 @@ export function createBarcodeScanner() {
 @NgModule({
     imports: [
         CodeScannerRoutingModule,
+        NativeScriptCommonModule
     ],
     declarations: [
         CodeScannerComponent
